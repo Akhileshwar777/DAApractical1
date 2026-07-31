@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <utility> // For std::swap
+#include <utility> 
 
-// Function to perform optimized Bubble Sort
 void bubbleSort(std::vector<int>& arr) {
     int n = arr.size();
-    
-    // Outer loop for the number of passes
     for (int i = 0; i < n - 1; i++) {
         bool swapped = false; // Track if any swap occurs in this pass
         
@@ -18,15 +15,12 @@ void bubbleSort(std::vector<int>& arr) {
                 swapped = true; 
             }
         }
-        
-        // If no two elements were swapped, the array is already sorted
-        if (!swapped) {
+      
+       if (!swapped) {
             break;
         }
     }
 }
-
-// Function to print the array elements
 void printArray(const std::vector<int>& arr) {
     for (int val : arr) {
         std::cout << val << " ";
