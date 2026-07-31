@@ -1,17 +1,17 @@
 #include <iostream>
 #include <vector>
 
-// Merges two sorted sub-vectors into a single sorted sub-vector
+
 void merge(std::vector<int>& arr, int left, int mid, int right) {
     // Calculate the sizes of the two sub-vectors to be merged
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    // Create temporary vectors to hold the split data
+  
     std::vector<int> L(n1);
     std::vector<int> R(n2);
 
-    // Copy data to temporary vectors L[] and R[]
+   
     for (int i = 0; i < n1; i++) {
         L[i] = arr[left + i];
     }
@@ -19,7 +19,7 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
         R[j] = arr[mid + 1 + j];
     }
 
-    // Merge the temporary vectors back into the original vector arr[left..right]
+  
     int i = 0;    // Initial index of first sub-vector
     int j = 0;    // Initial index of second sub-vector
     int k = left; // Initial index of merged sub-vector
@@ -35,14 +35,14 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
         k++;
     }
 
-    // Copy remaining elements of L[], if there are any
+    
     while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    // Copy remaining elements of R[], if there are any
+   
     while (j < n2) {
         arr[k] = R[j];
         j++;
@@ -50,25 +50,25 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
     }
 }
 
-// Main function that implements Merge Sort recursively
+
 void mergeSort(std::vector<int>& arr, int left, int right) {
-    // Base case: If the sub-vector has 1 or 0 elements, it is already sorted
+   
     if (left >= right) {
         return;
     }
 
-    // Calculate mid point using overflow-safe formula
+   
     int mid = left + (right - left) / 2;
 
-    // Sort first and second halves
+   
     mergeSort(arr, left, mid);
     mergeSort(arr, mid + 1, right);
 
-    // Merge the sorted halves
+  
     merge(arr, left, mid, right);
 }
 
-// Helper function to print vector contents
+
 void printVector(const std::vector<int>& arr) {
     for (int num : arr) {
         std::cout << num << " ";
@@ -82,7 +82,7 @@ int main() {
     std::cout << "Original array: ";
     printVector(data);
 
-    // Run merge sort on the entire vector bounds
+
     mergeSort(data, 0, data.size() - 1);
 
     std::cout << "Sorted array:   ";
